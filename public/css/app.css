@@ -10947,6 +10947,7 @@ a.text-dark:focus {
 
 .v-dialog {
   overflow: visible !important;
+  max-width: 800px !important;
 }
 
 .v-data-table__wrapper {
