@@ -176,12 +176,14 @@
                                                             elevation="2"
                                                             class="mr-3"
                                                             @click="close"
+                                                            color="secondary"
                                                         >
                                                             Cancel
                                                         </v-btn>
                                                         <v-btn
                                                             elevation="2"
                                                             class="mr-4"
+                                                            color="primary"
                                                             @click="save"
                                                         >
                                                             Ok
@@ -206,14 +208,12 @@
                                                 <v-card-actions>
                                                     <v-spacer></v-spacer>
                                                     <v-btn
-                                                        color="blue darken-1"
-                                                        text
+                                                        color="secondary"
                                                         @click="closeDelete"
                                                         >Cancel</v-btn
                                                     >
                                                     <v-btn
-                                                        color="blue darken-1"
-                                                        text
+                                                        color="primary"
                                                         @click="
                                                             deleteItemConfirm
                                                         "

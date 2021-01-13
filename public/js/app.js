@@ -60799,7 +60799,9 @@ var render = function() {
                                                                     "mr-3",
                                                                   attrs: {
                                                                     elevation:
-                                                                      "2"
+                                                                      "2",
+                                                                    color:
+                                                                      "secondary"
                                                                   },
                                                                   on: {
                                                                     click:
@@ -60820,7 +60822,9 @@ var render = function() {
                                                                     "mr-4",
                                                                   attrs: {
                                                                     elevation:
-                                                                      "2"
+                                                                      "2",
+                                                                    color:
+                                                                      "primary"
                                                                   },
                                                                   on: {
                                                                     click:
@@ -60889,8 +60893,7 @@ var render = function() {
                                                             {
                                                               attrs: {
                                                                 color:
-                                                                  "blue darken-1",
-                                                                text: ""
+                                                                  "secondary"
                                                               },
                                                               on: {
                                                                 click:
@@ -60904,9 +60907,7 @@ var render = function() {
                                                             "v-btn",
                                                             {
                                                               attrs: {
-                                                                color:
-                                                                  "blue darken-1",
-                                                                text: ""
+                                                                color: "primary"
                                                               },
                                                               on: {
                                                                 click:
