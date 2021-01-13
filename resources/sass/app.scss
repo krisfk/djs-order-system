@@ -1,0 +1,82 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+// Variables
+@import "variables";
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+.change-leave {
+    opacity: 1;
+}
+
+.change-leave-active {
+    transition: opacity 0.5s;
+}
+
+.change-leave-to {
+    opacity: 0;
+}
+
+.change-enter {
+    opacity: 0;
+}
+
+.change-enter-active {
+    transition: opacity 0.5s;
+}
+
+.change-enter-to {
+    opacity: 1;
+}
+
+.datepicker-label {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: normal;
+}
+
+.datepicker {
+    border-bottom: 1px solid;
+    padding: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.datepicker input {
+    width: 100%;
+    outline: none;
+}
+
+.v-dialog {
+    overflow: visible !important;
+}
+
+.v-data-table__wrapper {
+    margin: 30px 0 0 0 !important;
+}
+
+.theme--light.v-data-table>.v-data-table__wrapper>table>thead>tr>th {
+    white-space: nowrap !important;
+}
+
+.v-application .indigo {
+    background: #d5418d !important;
+}
+
+.search-text-field {
+    width: 160px;
+}
+
+// h5 {}
+@media only screen and (max-width: 480px) {
+    h5 {
+        font-size: 14px;
+        // margin: 0 0 20px 0 !important;
+    }
+    .v-data-table>.v-data-table__wrapper .v-data-table__mobile-table-row {
+        display: block !important;
+        padding: 30px 0 30px 0 !important;
+    }
+    // hr {
+    //     display: none !important;
+    // }
+}
