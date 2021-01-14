@@ -40,9 +40,12 @@ class OrderController extends Controller
 
         // dd(88);
             $order_id = $request['order_id'];
-            $order = Order::find($order_id);    
+            $order = Order::find($order_id);   
+            $order->order_app = $request['order_app'] ;
+            // return $order->order_app;
             $order->order_code = isset($request['order_code']) ? $request['order_code'] : '';
-            $order->order_type = isset($request['order_type']) ? $request['order_type'] : '';
+            $order->order_type = $request['order_type'];
+            // return $order->order_type;
             $order->tel = isset($request['tel']) ? $request['tel'] : '';
             $order->order_detail = isset($request['order_detail']) ? $request['order_detail'] : '';
             $order->order_date = isset($request['order_date']) ? $request['order_date'] : '';
@@ -77,7 +80,9 @@ class OrderController extends Controller
         $order = new Order();
       
         $order->order_code = isset($request['order_code']) ? $request['order_code'] : '';
-        $order->order_type = isset($request['order_type']) ? $request['order_type'] : '';
+        $order->order_type =  $request['order_type'] ;
+        $order->order_app = $request['order_app'];
+
         $order->tel = isset($request['tel']) ? $request['tel'] : '';
         $order->order_detail = isset($request['order_detail']) ? $request['order_detail'] : '';
         $order->order_date = isset($request['order_date']) ? $request['order_date'] : '';

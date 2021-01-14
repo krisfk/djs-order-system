@@ -145,6 +145,17 @@
                                                             ]"
                                                         ></v-text-field>
 
+                                                        <v-select
+                                                            v-model="
+                                                                editedItem.order_app
+                                                            "
+                                                            :items="
+                                                                orderAppList
+                                                            "
+                                                            label="Order App"
+                                                            outlined
+                                                        ></v-select>
+
                                                         <div
                                                             class="datepicker-label"
                                                         >
@@ -274,7 +285,7 @@ export default {
             "STORE",
             "CUSTOM"
         ],
-
+        orderAppList: ["", "WhatsApp", "Signal"],
         current_doc: "",
         overlay: false,
         page_title: "Order Management",
@@ -300,6 +311,8 @@ export default {
             { text: "Order Code", value: "order_code" },
             { text: "Order Type", value: "order_type" },
             { text: "Tel", value: "tel" },
+            { text: "Order App", value: "order_app" },
+
             { text: "Order Detail", value: "order_detail" },
 
             { text: "Order Date", value: "order_date" },
@@ -421,6 +434,8 @@ export default {
         save() {
             let order_code = this.editedItem.order_code;
             let order_type = this.editedItem.order_type;
+            let order_app = this.editedItem.order_app;
+
             let tel = this.editedItem.tel;
             // alert(this.editedItem.order_date);
             this.editedItem.order_date = moment(
@@ -453,6 +468,7 @@ export default {
                         order_id,
                         order_code,
                         order_type,
+                        order_app,
                         tel,
                         order_date,
                         order_detail

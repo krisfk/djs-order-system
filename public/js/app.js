@@ -2527,6 +2527,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -2542,6 +2553,7 @@ __webpack_require__.r(__webpack_exports__);
       test2: "",
       username: "",
       orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "CUSTOM"],
+      orderAppList: ["", "WhatsApp", "Signal"],
       current_doc: "",
       overlay: false,
       page_title: "Order Management",
@@ -2576,6 +2588,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: "Tel",
         value: "tel"
+      }, {
+        text: "Order App",
+        value: "order_app"
       }, {
         text: "Order Detail",
         value: "order_detail"
@@ -2691,6 +2706,7 @@ __webpack_require__.r(__webpack_exports__);
     save: function save() {
       var order_code = this.editedItem.order_code;
       var order_type = this.editedItem.order_type;
+      var order_app = this.editedItem.order_app;
       var tel = this.editedItem.tel; // alert(this.editedItem.order_date);
 
       this.editedItem.order_date = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.editedItem.order_date).format("yyyy-MM-DD");
@@ -2716,6 +2732,7 @@ __webpack_require__.r(__webpack_exports__);
           order_id: order_id,
           order_code: order_code,
           order_type: order_type,
+          order_app: order_app,
           tel: tel,
           order_date: order_date,
           order_detail: order_detail
@@ -60718,6 +60735,33 @@ var render = function() {
                                                                   }
                                                                 }
                                                               ),
+                                                              _vm._v(" "),
+                                                              _c("v-select", {
+                                                                attrs: {
+                                                                  items:
+                                                                    _vm.orderAppList,
+                                                                  label:
+                                                                    "Order App",
+                                                                  outlined: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .editedItem
+                                                                      .order_app,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.editedItem,
+                                                                      "order_app",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "\n                                                            editedItem.order_app\n                                                        "
+                                                                }
+                                                              }),
                                                               _vm._v(" "),
                                                               _c(
                                                                 "div",

@@ -17,6 +17,7 @@ class Order extends Model
         'order_code',
         'order_type',
         'tel',
+        'order_app',
         'order_date'
     ];
 
