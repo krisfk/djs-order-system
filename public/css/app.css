@@ -10966,6 +10966,14 @@ a.text-dark:focus {
   width: 160px;
 }
 
+.v-data-table > .v-data-table__wrapper .v-data-table__mobile-row {
+  white-space: pre-line !important;
+}
+
+.v-application .text-start {
+  white-space: pre-line !important;
+}
+
 @media only screen and (max-width: 480px) {
   h5 {
     font-size: 14px;

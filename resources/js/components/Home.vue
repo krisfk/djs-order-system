@@ -33,6 +33,40 @@
                                 class="elevation-1 mt-5"
                                 :loading="isloading"
                             >
+                                <!-- <template v-slot:body="{ items }">
+                                    <tbody>
+                                        <tr
+                                            v-for="item in items"
+                                            :key="item.id"
+                                        >
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.order_code }}</td>
+                                            <td>{{ item.order_type }}</td>
+                                            <td>{{ item.tel }}</td>
+                                            <td>{{ item.order_app }}</td>
+                                            <td style="white-space: pre-line">
+                                                {{ item.order_detail }}
+                                            </td>
+                                            <td>{{ item.order_date }}</td>
+                                            <td>
+                                                <v-icon
+                                                    small
+                                                    class="mr-2"
+                                                    @click="editItem(item)"
+                                                >
+                                                    mdi-pencil
+                                                </v-icon>
+                                                <v-icon
+                                                    small
+                                                    @click="deleteItem(item)"
+                                                >
+                                                    mdi-delete
+                                                </v-icon>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </template> -->
+
                                 <template v-slot:top>
                                     <v-toolbar flat>
                                         <div class="row">
