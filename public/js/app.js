@@ -2540,7 +2540,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       test: "",
       username: "",
-      orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "CUSTOM"],
+      orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "CUSTOM"],
       current_doc: "",
       overlay: false,
       page_title: "Order Management",

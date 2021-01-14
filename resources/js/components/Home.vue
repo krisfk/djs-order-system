@@ -269,6 +269,8 @@ export default {
             "KANAHEI",
             "KAO KANAHEI",
             "JS CLOTHING",
+            "STOCK",
+            "STORE",
             "CUSTOM"
         ],
 
