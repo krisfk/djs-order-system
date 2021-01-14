@@ -75,6 +75,11 @@
     white-space: pre-line !important;
 }
 
+.v-application--is-ltr .v-data-table__mobile-row__cell {
+    width: 70%;
+    text-align: left;
+}
+
 // h5 {}
 @media only screen and (max-width: 480px) {
     h5 {
