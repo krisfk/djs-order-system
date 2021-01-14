@@ -2539,6 +2539,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       test: "",
+      test2: "",
       username: "",
       orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "CUSTOM"],
       current_doc: "",

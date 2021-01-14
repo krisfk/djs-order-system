@@ -261,6 +261,7 @@ export default {
     components: { VueJsonToCsv, Datepicker },
     data: () => ({
         test: "",
+        test2: "",
         username: "",
         orderTypeList: [
             "",
