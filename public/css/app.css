@@ -10964,6 +10964,7 @@ a.text-dark:focus {
 
 .search-text-field {
   width: 160px;
+  position: absolute;
 }
 
 .v-data-table > .v-data-table__wrapper .v-data-table__mobile-row {
