@@ -10999,6 +10999,10 @@ a.text-dark:focus {
   opacity: 0;
 }
 
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+  margin-bottom: 0 !important;
+}
+
 @media only screen and (max-width: 480px) {
   h5 {
     font-size: 14px;

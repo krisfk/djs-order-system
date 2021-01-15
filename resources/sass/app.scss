@@ -104,6 +104,10 @@
     opacity: 0;
 }
 
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+    margin-bottom: 0 !important;
+}
+
 // h5 {}
 @media only screen and (max-width: 480px) {
     h5 {
