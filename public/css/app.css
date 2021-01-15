@@ -10998,5 +10998,10 @@ a.text-dark:focus {
   h5 {
     font-size: 14px;
   }
+
+  .search-text-field {
+    position: relative;
+    top: 10px;
+  }
 }
 
