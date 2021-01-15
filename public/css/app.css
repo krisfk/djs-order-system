@@ -10983,7 +10983,7 @@ a.text-dark:focus {
 .action-btn {
   background: #949494;
   color: #fff !important;
-  padding: 4px !important;
+  padding: 7px 6px 9px 6px !important;
   border-radius: 4px !important;
   display: inline-block !important;
   text-decoration: none;
@@ -10999,8 +10999,31 @@ a.text-dark:focus {
   opacity: 0;
 }
 
+.copy-tel-btn {
+  margin: 5px 0 0px 0;
+}
+
 .v-text-field.v-text-field--enclosed .v-text-field__details {
   margin-bottom: 0 !important;
+}
+
+button.v-icon {
+  font-size: 16px;
+  padding: 10px;
+  background: #949494;
+  color: #fff !important;
+  border-radius: 4px;
+  display: inline-block !important;
+  transition: 0.2s;
+  margin: 0px 0 0 0;
+}
+
+button.v-icon:hover {
+  opacity: 0.85;
+}
+
+.btn-set {
+  margin: 10px 0 10px 0;
 }
 
 @media only screen and (max-width: 480px) {

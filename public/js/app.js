@@ -2614,6 +2614,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -61080,89 +61087,100 @@ var render = function() {
                                     var item = ref.item
                                     return [
                                       _c(
-                                        "v-icon",
-                                        {
-                                          staticClass: "mr-2",
-                                          attrs: { small: "" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.editItem(item)
-                                            }
-                                          }
-                                        },
+                                        "div",
+                                        { staticClass: "btn-set" },
                                         [
-                                          _vm._v(
-                                            "\n                                    mdi-pencil\n                                "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-icon",
-                                        {
-                                          staticClass: "mr-2",
-                                          attrs: { small: "" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.deleteItem(item)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                    mdi-delete\n                                "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "action-btn",
-                                          attrs: {
-                                            target: "_blank",
-                                            href: "https://wa.me/852" + item.tel
-                                          }
-                                        },
-                                        [_vm._v("852wts")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "action-btn",
-                                          attrs: {
-                                            target: "_blank",
-                                            href: "https://wa.me/853" + item.tel
-                                          }
-                                        },
-                                        [_vm._v("853wts")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass:
-                                            "copy-tel-btn action-btn",
-                                          attrs: {
-                                            href: "javascript:void(0);",
-                                            "data-id": item.id
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.copyTel(item, $event)
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("copy tel")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        class:
-                                          "copy-tel-text copy-tel-" + item.id,
-                                        attrs: { type: "text" },
-                                        domProps: { value: item.tel }
-                                      })
+                                          _c(
+                                            "v-icon",
+                                            {
+                                              attrs: { small: "" },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.editItem(item)
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                        mdi-pencil\n                                    "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-icon",
+                                            {
+                                              attrs: { small: "" },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.deleteItem(item)
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                        mdi-delete\n                                    "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass: "action-btn",
+                                              attrs: {
+                                                target: "_blank",
+                                                href:
+                                                  "https://wa.me/852" + item.tel
+                                              }
+                                            },
+                                            [_vm._v("852wts")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass: "action-btn",
+                                              attrs: {
+                                                target: "_blank",
+                                                href:
+                                                  "https://wa.me/853" + item.tel
+                                              }
+                                            },
+                                            [_vm._v("853wts")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "copy-tel-btn action-btn",
+                                              attrs: {
+                                                href: "javascript:void(0);",
+                                                "data-id": item.id
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.copyTel(
+                                                    item,
+                                                    $event
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("copy tel")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            class:
+                                              "copy-tel-text copy-tel-" +
+                                              item.id,
+                                            attrs: { type: "text" },
+                                            domProps: { value: item.tel }
+                                          })
+                                        ],
+                                        1
+                                      )
                                     ]
                                   }
                                 },

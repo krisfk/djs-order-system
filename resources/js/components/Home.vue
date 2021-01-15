@@ -271,48 +271,55 @@
                                     </v-toolbar>
                                 </template>
                                 <template v-slot:[`item.actions`]="{ item }">
-                                    <v-icon
-                                        small
-                                        class="mr-2"
-                                        @click="editItem(item)"
-                                    >
-                                        mdi-pencil
-                                    </v-icon>
-                                    <v-icon
-                                        small
-                                        @click="deleteItem(item)"
-                                        class="mr-2"
-                                    >
-                                        mdi-delete
-                                    </v-icon>
+                                    <div class="btn-set">
+                                        <v-icon
+                                            small
+                                            class=""
+                                            @click="editItem(item)"
+                                        >
+                                            mdi-pencil
+                                        </v-icon>
+                                        <v-icon
+                                            small
+                                            @click="deleteItem(item)"
+                                            class=""
+                                        >
+                                            mdi-delete
+                                        </v-icon>
 
-                                    <a
-                                        target="_blank"
-                                        class="action-btn"
-                                        :href="'https://wa.me/852' + item.tel"
-                                        >852wts</a
-                                    >
-                                    <a
-                                        target="_blank"
-                                        class="action-btn"
-                                        :href="'https://wa.me/853' + item.tel"
-                                        >853wts</a
-                                    >
+                                        <a
+                                            target="_blank"
+                                            class="action-btn"
+                                            :href="
+                                                'https://wa.me/852' + item.tel
+                                            "
+                                            >852wts</a
+                                        >
+                                        <a
+                                            target="_blank"
+                                            class="action-btn"
+                                            :href="
+                                                'https://wa.me/853' + item.tel
+                                            "
+                                            >853wts</a
+                                        >
 
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="copy-tel-btn action-btn"
-                                        :data-id="item.id"
-                                        @click="copyTel(item, $event)"
-                                        >copy tel</a
-                                    >
-                                    <input
-                                        type="text"
-                                        :class="
-                                            'copy-tel-text copy-tel-' + item.id
-                                        "
-                                        :value="item.tel"
-                                    />
+                                        <a
+                                            href="javascript:void(0);"
+                                            class="copy-tel-btn action-btn"
+                                            :data-id="item.id"
+                                            @click="copyTel(item, $event)"
+                                            >copy tel</a
+                                        >
+                                        <input
+                                            type="text"
+                                            :class="
+                                                'copy-tel-text copy-tel-' +
+                                                    item.id
+                                            "
+                                            :value="item.tel"
+                                        />
+                                    </div>
                                 </template>
                                 <template v-slot:no-data>
                                     <v-btn color="primary" @click="initialize">
