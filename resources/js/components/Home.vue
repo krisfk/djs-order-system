@@ -307,9 +307,10 @@
                                         >copy tel</a
                                     >
                                     <input
-                                        hidden
                                         type="text"
-                                        :class="'copy-tel-' + item.id"
+                                        :class="
+                                            'copy-tel-text copy-tel-' + item.id
+                                        "
                                         :value="item.tel"
                                     />
                                 </template>

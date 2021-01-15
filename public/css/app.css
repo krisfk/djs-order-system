@@ -10995,6 +10995,10 @@ a.text-dark:focus {
   opacity: 0.85;
 }
 
+.copy-tel-text {
+  opacity: 0;
+}
+
 @media only screen and (max-width: 480px) {
   h5 {
     font-size: 14px;

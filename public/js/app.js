@@ -2613,6 +2613,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -61157,8 +61158,9 @@ var render = function() {
                                       ),
                                       _vm._v(" "),
                                       _c("input", {
-                                        class: "copy-tel-" + item.id,
-                                        attrs: { hidden: "", type: "text" },
+                                        class:
+                                          "copy-tel-text copy-tel-" + item.id,
+                                        attrs: { type: "text" },
                                         domProps: { value: item.tel }
                                       })
                                     ]
