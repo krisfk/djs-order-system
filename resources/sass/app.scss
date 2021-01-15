@@ -80,6 +80,25 @@
     text-align: left;
 }
 
+.action-btn {
+    background: #949494;
+    color: #fff !important;
+    padding: 4px !important;
+    border-radius: 4px !important;
+    display: inline-block !important;
+    // width: auto;
+    // display: inline-block !important;
+    // display: compact !important;
+    // margin: 5px 0 0px 5px !important;
+    text-decoration: none;
+    transition: 0.2s all;
+}
+
+.action-btn:hover {
+    text-decoration: none;
+    opacity: 0.85;
+}
+
 // h5 {}
 @media only screen and (max-width: 480px) {
     h5 {

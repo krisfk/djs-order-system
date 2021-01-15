@@ -278,9 +278,40 @@
                                     >
                                         mdi-pencil
                                     </v-icon>
-                                    <v-icon small @click="deleteItem(item)">
+                                    <v-icon
+                                        small
+                                        @click="deleteItem(item)"
+                                        class="mr-2"
+                                    >
                                         mdi-delete
                                     </v-icon>
+
+                                    <a
+                                        target="_blank"
+                                        class="action-btn"
+                                        :href="'https://wa.me/852' + item.tel"
+                                        >852wts</a
+                                    >
+                                    <a
+                                        target="_blank"
+                                        class="action-btn"
+                                        :href="'https://wa.me/853' + item.tel"
+                                        >853wts</a
+                                    >
+
+                                    <a
+                                        href="javascript:void(0);"
+                                        class="copy-tel-btn action-btn"
+                                        :data-id="item.id"
+                                        @click="copyTel(item, $event)"
+                                        >copy tel</a
+                                    >
+                                    <input
+                                        hidden
+                                        type="text"
+                                        :class="'copy-tel-' + item.id"
+                                        :value="item.tel"
+                                    />
                                 </template>
                                 <template v-slot:no-data>
                                     <v-btn color="primary" @click="initialize">
@@ -293,6 +324,16 @@
                 </v-col>
             </v-layout>
         </v-container>
+        <v-bottom-sheet v-model="sheet">
+            <v-sheet class="text-center" height="200px">
+                <v-btn class="mt-6" text color="red" @click="sheet = !sheet">
+                    close
+                </v-btn>
+                <div class="py-3 font-weight-bold">
+                    Number {{ copy_tel }} is copied
+                </div>
+            </v-sheet>
+        </v-bottom-sheet>
     </v-content>
 </template>
 
@@ -305,7 +346,9 @@ import moment from "moment";
 export default {
     components: { VueJsonToCsv, Datepicker },
     data: () => ({
+        copy_tel: "",
         test: "",
+        sheet: false,
         test2: "",
         username: "",
         orderTypeList: [
@@ -317,6 +360,8 @@ export default {
             "JS CLOTHING",
             "STOCK",
             "STORE",
+            "Syk hand made",
+            "Djs venina",
             "CUSTOM"
         ],
         orderAppList: ["", "WhatsApp", "Signal"],
@@ -390,6 +435,24 @@ export default {
     },
 
     methods: {
+        copyTel(item, event) {
+            var idx = event.currentTarget.getAttribute("data-id");
+            var copyTextarea = document.querySelector(".copy-tel-" + idx);
+            this.copy_tel = item.tel;
+
+            copyTextarea.focus();
+            copyTextarea.select();
+
+            try {
+                var successful = document.execCommand("copy");
+
+                var msg = successful ? "successful" : "unsuccessful";
+                console.log("Copying text command was " + msg);
+                this.sheet = true;
+            } catch (err) {
+                console.log("Oops, unable to copy");
+            }
+        },
         fetchAllOrders() {
             let $vm = this;
 

@@ -2572,6 +2572,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -2583,10 +2624,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      copy_tel: "",
       test: "",
+      sheet: false,
       test2: "",
       username: "",
-      orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "CUSTOM"],
+      orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "Syk hand made", "Djs venina", "CUSTOM"],
       orderAppList: ["", "WhatsApp", "Signal"],
       current_doc: "",
       overlay: false,
@@ -2670,6 +2713,22 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchAllOrders();
   },
   methods: {
+    copyTel: function copyTel(item, event) {
+      var idx = event.currentTarget.getAttribute("data-id");
+      var copyTextarea = document.querySelector(".copy-tel-" + idx);
+      this.copy_tel = item.tel;
+      copyTextarea.focus();
+      copyTextarea.select();
+
+      try {
+        var successful = document.execCommand("copy");
+        var msg = successful ? "successful" : "unsuccessful";
+        console.log("Copying text command was " + msg);
+        this.sheet = true;
+      } catch (err) {
+        console.log("Oops, unable to copy");
+      }
+    },
     fetchAllOrders: function fetchAllOrders() {
       var $vm = this;
       axios.post("/api/allOrders").then(function (response) {
@@ -61040,6 +61099,7 @@ var render = function() {
                                       _c(
                                         "v-icon",
                                         {
+                                          staticClass: "mr-2",
                                           attrs: { small: "" },
                                           on: {
                                             click: function($event) {
@@ -61052,7 +61112,55 @@ var render = function() {
                                             "\n                                    mdi-delete\n                                "
                                           )
                                         ]
-                                      )
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "action-btn",
+                                          attrs: {
+                                            target: "_blank",
+                                            href: "https://wa.me/852" + item.tel
+                                          }
+                                        },
+                                        [_vm._v("852wts")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "action-btn",
+                                          attrs: {
+                                            target: "_blank",
+                                            href: "https://wa.me/853" + item.tel
+                                          }
+                                        },
+                                        [_vm._v("853wts")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "copy-tel-btn action-btn",
+                                          attrs: {
+                                            href: "javascript:void(0);",
+                                            "data-id": item.id
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.copyTel(item, $event)
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("copy tel")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        class: "copy-tel-" + item.id,
+                                        attrs: { hidden: "", type: "text" },
+                                        domProps: { value: item.tel }
+                                      })
                                     ]
                                   }
                                 },
@@ -61090,6 +61198,50 @@ var render = function() {
                 ],
                 1
               )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-bottom-sheet",
+        {
+          model: {
+            value: _vm.sheet,
+            callback: function($$v) {
+              _vm.sheet = $$v
+            },
+            expression: "sheet"
+          }
+        },
+        [
+          _c(
+            "v-sheet",
+            { staticClass: "text-center", attrs: { height: "200px" } },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mt-6",
+                  attrs: { text: "", color: "red" },
+                  on: {
+                    click: function($event) {
+                      _vm.sheet = !_vm.sheet
+                    }
+                  }
+                },
+                [_vm._v("\n                close\n            ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "py-3 font-weight-bold" }, [
+                _vm._v(
+                  "\n                Number " +
+                    _vm._s(_vm.copy_tel) +
+                    " is copied\n            "
+                )
+              ])
             ],
             1
           )

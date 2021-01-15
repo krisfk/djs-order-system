@@ -10979,6 +10979,21 @@ a.text-dark:focus {
   text-align: left;
 }
 
+.action-btn {
+  background: #949494;
+  color: #fff !important;
+  padding: 4px !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  text-decoration: none;
+  transition: 0.2s all;
+}
+
+.action-btn:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
+
 @media only screen and (max-width: 480px) {
   h5 {
     font-size: 14px;
