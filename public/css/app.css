@@ -10988,6 +10988,7 @@ a.text-dark:focus {
   display: inline-block !important;
   text-decoration: none;
   transition: 0.2s all;
+  margin: 0 0 0.3rem 0;
 }
 
 .action-btn:hover {
