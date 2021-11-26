@@ -336,11 +336,11 @@
                                                     item.id
                                             "
                                             :value="
-                                                '*Order Code*' +
+                                                '*Bill Code*' +
                                                     '\n' +
                                                     item.order_code +
                                                     '\n\n' +
-                                                    '*Order Type*' +
+                                                    '*Bill Type*' +
                                                     '\n' +
                                                     item.order_type +
                                                     '\n\n' +
@@ -348,11 +348,11 @@
                                                     '\n' +
                                                     item.tel +
                                                     '\n\n' +
-                                                    '*Order Detail*' +
+                                                    '*Bill Detail*' +
                                                     '\n' +
                                                     item.order_detail +
                                                     '\n\n' +
-                                                    '*Order Date*' +
+                                                    '*Bill Date*' +
                                                     '\n' +
                                                     item.order_date
                                             "
