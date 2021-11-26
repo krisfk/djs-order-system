@@ -499,10 +499,12 @@ export default {
                 return this.search2;
             } else {
                 if (this.update_search_idx == 1) {
-                    return this.search2 && this.search;
+                    return this.search;
+                    // this.search2 && this.search;
                 }
                 if (this.update_search_idx == 2) {
-                    return this.search && this.search2;
+                    return this.search2;
+                    // this.search && this.search2;
                 }
             }
 
