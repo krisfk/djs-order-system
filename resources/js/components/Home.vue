@@ -336,23 +336,23 @@
                                                     item.id
                                             "
                                             :value="
-                                                'Order Code' +
+                                                '*Order Code*' +
                                                     '\n' +
                                                     item.order_code +
                                                     '\n\n' +
-                                                    'Order Type' +
+                                                    '*Order Type*' +
                                                     '\n' +
                                                     item.order_type +
                                                     '\n\n' +
-                                                    'Tel' +
+                                                    '*Tel*' +
                                                     '\n' +
                                                     item.tel +
                                                     '\n\n' +
-                                                    'Order Detail' +
+                                                    '*Order Detail*' +
                                                     '\n' +
                                                     item.order_detail +
                                                     '\n\n' +
-                                                    'Order Date' +
+                                                    '*Order Date*' +
                                                     '\n' +
                                                     item.order_date
                                             "
