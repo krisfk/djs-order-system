@@ -61349,7 +61349,7 @@ var render = function() {
         [
           _c(
             "v-sheet",
-            { staticClass: "text-center", attrs: { height: "200px" } },
+            { staticClass: "text-center sheet" },
             [
               _c(
                 "v-btn",
@@ -61393,7 +61393,7 @@ var render = function() {
         [
           _c(
             "v-sheet",
-            { staticClass: "text-center", attrs: { height: "200px" } },
+            { staticClass: "text-center sheet" },
             [
               _c(
                 "v-btn",
