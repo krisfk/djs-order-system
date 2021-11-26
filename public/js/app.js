@@ -2670,6 +2670,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -2681,6 +2698,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      update_search_idx: "",
       copy_tel: "",
       copy_orderlist: "",
       test: "",
@@ -2709,6 +2727,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       },
       search: "",
+      search2: "",
       isloading: true,
       dialog: false,
       dialogDelete: false,
@@ -2751,6 +2770,30 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     formTitle: function formTitle() {
       return this.editedIndex === -1 ? "New Order" : "Edit Order";
+    },
+    searchResult: function searchResult() {
+      // console.log(this.update_search_idx);
+      if (this.search && !this.search2) {
+        // console.log(1);
+        return this.search;
+      } else if (!this.search && this.search2) {
+        // console.log(2);
+        return this.search2;
+      } else {
+        if (this.update_search_idx == 1) {
+          return this.search2 && this.search;
+        }
+
+        if (this.update_search_idx == 2) {
+          return this.search && this.search2;
+        }
+      } // {
+      //     return this.search;
+      // } else {
+      //     return this.search && this.search2;
+      // }
+      // return !this.search ? this.search2 : this.search && this.search2;
+
     }
   },
   watch: {
@@ -2772,6 +2815,9 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchAllOrders();
   },
   methods: {
+    updateSearchidx: function updateSearchidx(idx) {
+      this.update_search_idx = idx; // alert(idx);
+    },
     copyTel: function copyTel(item, event) {
       var idx = event.currentTarget.getAttribute("data-id");
       var copyTextarea = document.querySelector(".copy-tel-" + idx);
@@ -60642,7 +60688,7 @@ var render = function() {
                             attrs: {
                               headers: _vm.headers,
                               items: _vm.orders,
-                              search: _vm.search,
+                              search: _vm.searchResult,
                               "sort-by": "calories",
                               loading: _vm.isloading
                             },
@@ -60661,26 +60707,19 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-lg-7 col-md-7 col-sm-12 col-12 "
+                                                  "col-lg-8 col-md-8 col-sm-12 col-12 "
                                               },
                                               [
-                                                _c(
-                                                  "h5",
-                                                  {
-                                                    staticClass:
-                                                      "d-inline-block"
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                                " +
-                                                        _vm._s(_vm.page_title) +
-                                                        "\n                                            "
-                                                    )
-                                                  ]
-                                                ),
+                                                _c("h5", {}, [
+                                                  _vm._v(
+                                                    "\n                                                " +
+                                                      _vm._s(_vm.page_title) +
+                                                      "\n                                            "
+                                                  )
+                                                ]),
                                                 _vm._v(" "),
                                                 _c("v-divider", {
-                                                  staticClass: "mx-2",
+                                                  staticClass: "mx-2 divider",
                                                   staticStyle: {
                                                     width: "100px",
                                                     height: "32px",
@@ -60695,24 +60734,72 @@ var render = function() {
                                                   }
                                                 }),
                                                 _vm._v(" "),
-                                                _c("v-text-field", {
-                                                  staticClass:
-                                                    "d-inline-block search-text-field",
-                                                  attrs: {
-                                                    "append-icon":
-                                                      "mdi-magnify",
-                                                    label: "Search Order",
-                                                    "single-line": "",
-                                                    "hide-details": ""
-                                                  },
-                                                  model: {
-                                                    value: _vm.search,
-                                                    callback: function($$v) {
-                                                      _vm.search = $$v
-                                                    },
-                                                    expression: "search"
-                                                  }
-                                                })
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "field-div" },
+                                                  [
+                                                    _c("v-text-field", {
+                                                      staticClass:
+                                                        "d-inline-block search-text-field me-1",
+                                                      attrs: {
+                                                        "append-icon":
+                                                          "mdi-magnify",
+                                                        label: "Search Text 1",
+                                                        "single-line": "",
+                                                        "hide-details": ""
+                                                      },
+                                                      on: {
+                                                        keyup: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.updateSearchidx(
+                                                            1
+                                                          )
+                                                        }
+                                                      },
+                                                      model: {
+                                                        value: _vm.search,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.search = $$v
+                                                        },
+                                                        expression: "search"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("v-text-field", {
+                                                      staticClass:
+                                                        "d-inline-block search-text-field search-text-field-2",
+                                                      attrs: {
+                                                        "append-icon":
+                                                          "mdi-magnify",
+                                                        label: "Search Text 2",
+                                                        "single-line": "",
+                                                        "hide-details": ""
+                                                      },
+                                                      on: {
+                                                        keyup: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.updateSearchidx(
+                                                            2
+                                                          )
+                                                        }
+                                                      },
+                                                      model: {
+                                                        value: _vm.search2,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.search2 = $$v
+                                                        },
+                                                        expression: "search2"
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                )
                                               ],
                                               1
                                             ),
@@ -60721,7 +60808,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "col-lg-5 col-md-5 col-sm-12 col-12 text-right"
+                                                  "col-lg-4 col-md-4 col-sm-12 col-12 text-center"
                                               },
                                               [
                                                 _c(
@@ -60818,7 +60905,7 @@ var render = function() {
                                                                   items:
                                                                     _vm.orderAppList,
                                                                   label:
-                                                                    "Order App",
+                                                                    "Bill App",
                                                                   outlined: ""
                                                                 },
                                                                 model: {
@@ -60848,7 +60935,7 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "\n                                                        Order Date\n                                                    "
+                                                                    "\n                                                        Bill Date\n                                                    "
                                                                   )
                                                                 ]
                                                               ),
@@ -60861,7 +60948,7 @@ var render = function() {
                                                                   format:
                                                                     "yyyy-MM-dd",
                                                                   placeholder:
-                                                                    "Order Date(yyyy-MM-dd)"
+                                                                    "Bill Date(yyyy-MM-dd)"
                                                                 },
                                                                 model: {
                                                                   value:
@@ -60887,7 +60974,7 @@ var render = function() {
                                                                 {
                                                                   attrs: {
                                                                     label:
-                                                                      "Order Code",
+                                                                      "Bill Code",
                                                                     rules: [
                                                                       _vm.rules
                                                                         .required
@@ -60919,7 +61006,7 @@ var render = function() {
                                                                   items:
                                                                     _vm.orderTypeList,
                                                                   label:
-                                                                    "Order Type",
+                                                                    "Bill Type",
                                                                   outlined: ""
                                                                 },
                                                                 model: {
@@ -60950,7 +61037,7 @@ var render = function() {
                                                                       .required
                                                                   ],
                                                                   label:
-                                                                    "Order Detail",
+                                                                    "Bill Detail",
                                                                   hint: "",
                                                                   outlined: ""
                                                                 },

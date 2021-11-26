@@ -28,7 +28,7 @@
                             <v-data-table
                                 :headers="headers"
                                 :items="orders"
-                                :search="search"
+                                :search="searchResult"
                                 sort-by="calories"
                                 class="elevation-1 mt-5"
                                 :loading="isloading"
@@ -71,13 +71,13 @@
                                     <v-toolbar flat>
                                         <div class="row">
                                             <div
-                                                class="col-lg-7 col-md-7 col-sm-12 col-12 "
+                                                class="col-lg-8 col-md-8 col-sm-12 col-12 "
                                             >
-                                                <h5 class="d-inline-block">
+                                                <h5 class="">
                                                     {{ page_title }}
                                                 </h5>
                                                 <v-divider
-                                                    class="mx-2"
+                                                    class="mx-2 divider"
                                                     style="width: 100px;
                                                             height: 32px;
                                                             padding: 0;
@@ -89,14 +89,31 @@
                                                 ></v-divider>
 
                                                 <!-- <v-spacer></v-spacer> -->
-                                                <v-text-field
-                                                    class="d-inline-block search-text-field"
-                                                    v-model="search"
-                                                    append-icon="mdi-magnify"
-                                                    label="Search Order"
-                                                    single-line
-                                                    hide-details
-                                                ></v-text-field>
+                                                <div class="field-div">
+                                                    <v-text-field
+                                                        class="d-inline-block search-text-field me-1"
+                                                        v-model="search"
+                                                        append-icon="mdi-magnify"
+                                                        label="Search Text 1"
+                                                        @keyup="
+                                                            updateSearchidx(1)
+                                                        "
+                                                        single-line
+                                                        hide-details
+                                                    ></v-text-field>
+
+                                                    <v-text-field
+                                                        class="d-inline-block search-text-field search-text-field-2"
+                                                        v-model="search2"
+                                                        append-icon="mdi-magnify"
+                                                        label="Search Text 2"
+                                                        @keyup="
+                                                            updateSearchidx(2)
+                                                        "
+                                                        single-line
+                                                        hide-details
+                                                    ></v-text-field>
+                                                </div>
                                             </div>
                                             <!-- <v-spacer></v-spacer> -->
 
@@ -105,7 +122,7 @@
                                         > -->
 
                                             <div
-                                                class="col-lg-5 col-md-5 col-sm-12 col-12 text-right"
+                                                class="col-lg-4 col-md-4 col-sm-12 col-12 text-center"
                                             >
                                                 <VueJsonToCsv
                                                     :csv-title="page_title"
@@ -154,14 +171,14 @@
                                                             :items="
                                                                 orderAppList
                                                             "
-                                                            label="Order App"
+                                                            label="Bill App"
                                                             outlined
                                                         ></v-select>
 
                                                         <div
                                                             class="datepicker-label"
                                                         >
-                                                            Order Date
+                                                            Bill Date
                                                         </div>
                                                         <Datepicker
                                                             type="date"
@@ -170,14 +187,14 @@
                                                             v-model="
                                                                 editedItem.order_date
                                                             "
-                                                            placeholder="Order Date(yyyy-MM-dd)"
+                                                            placeholder="Bill Date(yyyy-MM-dd)"
                                                         ></Datepicker>
 
                                                         <v-text-field
                                                             v-model="
                                                                 editedItem.order_code
                                                             "
-                                                            label="Order Code"
+                                                            label="Bill Code"
                                                             :rules="[
                                                                 rules.required
                                                             ]"
@@ -191,7 +208,7 @@
                                                             :items="
                                                                 orderTypeList
                                                             "
-                                                            label="Order Type"
+                                                            label="Bill Type"
                                                             outlined
                                                         ></v-select>
 
@@ -202,7 +219,7 @@
                                                             v-model="
                                                                 editedItem.order_detail
                                                             "
-                                                            label="Order Detail"
+                                                            label="Bill Detail"
                                                             hint=""
                                                             outlined
                                                             class="mt-0"
@@ -403,6 +420,7 @@ import moment from "moment";
 export default {
     components: { VueJsonToCsv, Datepicker },
     data: () => ({
+        update_search_idx: "",
         copy_tel: "",
         copy_orderlist: "",
         test: "",
@@ -442,6 +460,7 @@ export default {
         },
 
         search: "",
+        search2: "",
         isloading: true,
         dialog: false,
         dialogDelete: false,
@@ -468,6 +487,31 @@ export default {
     computed: {
         formTitle() {
             return this.editedIndex === -1 ? "New Order" : "Edit Order";
+        },
+        searchResult() {
+            // console.log(this.update_search_idx);
+            if (this.search && !this.search2) {
+                // console.log(1);
+                return this.search;
+            } else if (!this.search && this.search2) {
+                // console.log(2);
+
+                return this.search2;
+            } else {
+                if (this.update_search_idx == 1) {
+                    return this.search2 && this.search;
+                }
+                if (this.update_search_idx == 2) {
+                    return this.search && this.search2;
+                }
+            }
+
+            // {
+            //     return this.search;
+            // } else {
+            //     return this.search && this.search2;
+            // }
+            // return !this.search ? this.search2 : this.search && this.search2;
         }
     },
 
@@ -493,6 +537,10 @@ export default {
     },
 
     methods: {
+        updateSearchidx(idx) {
+            this.update_search_idx = idx;
+            // alert(idx);
+        },
         copyTel(item, event) {
             var idx = event.currentTarget.getAttribute("data-id");
             var copyTextarea = document.querySelector(".copy-tel-" + idx);
