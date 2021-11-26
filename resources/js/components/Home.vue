@@ -147,6 +147,32 @@
                                                     </v-card-title>
 
                                                     <v-card-text>
+                                                        <v-select
+                                                            v-model="
+                                                                editedItem.order_app
+                                                            "
+                                                            :items="
+                                                                orderAppList
+                                                            "
+                                                            label="Order App"
+                                                            outlined
+                                                        ></v-select>
+
+                                                        <div
+                                                            class="datepicker-label"
+                                                        >
+                                                            Order Date
+                                                        </div>
+                                                        <Datepicker
+                                                            type="date"
+                                                            class="datepicker mb-5"
+                                                            format="yyyy-MM-dd"
+                                                            v-model="
+                                                                editedItem.order_date
+                                                            "
+                                                            placeholder="Order Date(yyyy-MM-dd)"
+                                                        ></Datepicker>
+
                                                         <v-text-field
                                                             v-model="
                                                                 editedItem.order_code
@@ -168,42 +194,6 @@
                                                             label="Order Type"
                                                             outlined
                                                         ></v-select>
-                                                        <v-text-field
-                                                            outlined
-                                                            v-model="
-                                                                editedItem.tel
-                                                            "
-                                                            label="Tel"
-                                                            :rules="[
-                                                                rules.required
-                                                            ]"
-                                                        ></v-text-field>
-
-                                                        <v-select
-                                                            v-model="
-                                                                editedItem.order_app
-                                                            "
-                                                            :items="
-                                                                orderAppList
-                                                            "
-                                                            label="Order App"
-                                                            outlined
-                                                        ></v-select>
-
-                                                        <div
-                                                            class="datepicker-label"
-                                                        >
-                                                            Order Date
-                                                        </div>
-                                                        <Datepicker
-                                                            type="date"
-                                                            class="datepicker mb-4"
-                                                            format="yyyy-MM-dd"
-                                                            v-model="
-                                                                editedItem.order_date
-                                                            "
-                                                            placeholder="Order Date(yyyy-MM-dd)"
-                                                        ></Datepicker>
 
                                                         <v-textarea
                                                             :rules="[
@@ -215,8 +205,19 @@
                                                             label="Order Detail"
                                                             hint=""
                                                             outlined
-                                                            class="mt-7"
+                                                            class="mt-0"
                                                         ></v-textarea>
+                                                        <v-text-field
+                                                            outlined
+                                                            v-model="
+                                                                editedItem.tel
+                                                            "
+                                                            label="Tel"
+                                                            :rules="[
+                                                                rules.required
+                                                            ]"
+                                                        ></v-text-field>
+
                                                         <v-btn
                                                             elevation="2"
                                                             class="mr-3"
@@ -311,6 +312,14 @@
                                             @click="copyTel(item, $event)"
                                             >copy tel</a
                                         >
+                                        <a
+                                            href="javascript:void(0);"
+                                            class="copy-order-msg action-btn"
+                                            :data-id="item.id"
+                                            @click="copyOrderList(item, $event)"
+                                            >copy order list</a
+                                        >
+
                                         <input
                                             type="text"
                                             :class="
@@ -318,6 +327,31 @@
                                                     item.id
                                             "
                                             :value="item.tel"
+                                        />
+
+                                        <textarea
+                                            type="text"
+                                            :class="
+                                                'copy-orderlist-text copy-orderlist-' +
+                                                    item.id
+                                            "
+                                            :value="
+                                                'Order Code' +
+                                                    '\n' +
+                                                    item.order_code +
+                                                    '\n\n' +
+                                                    'Tel' +
+                                                    '\n' +
+                                                    item.tel +
+                                                    '\n\n' +
+                                                    'Order Detail' +
+                                                    '\n' +
+                                                    item.order_detail +
+                                                    '\n\n' +
+                                                    'Order Date' +
+                                                    '\n' +
+                                                    item.order_date
+                                            "
                                         />
                                     </div>
                                 </template>
@@ -342,6 +376,17 @@
                 </div>
             </v-sheet>
         </v-bottom-sheet>
+
+        <v-bottom-sheet v-model="sheet2">
+            <v-sheet class="text-center" height="200px">
+                <v-btn class="mt-6" text color="red" @click="sheet = !sheet">
+                    close
+                </v-btn>
+                <div class="py-3 font-weight-bold">
+                    Order list from {{ copy_tel }} is copied
+                </div>
+            </v-sheet>
+        </v-bottom-sheet>
     </v-content>
 </template>
 
@@ -355,8 +400,11 @@ export default {
     components: { VueJsonToCsv, Datepicker },
     data: () => ({
         copy_tel: "",
+        copy_orderlist: "",
         test: "",
         sheet: false,
+        sheet2: false,
+
         test2: "",
         username: "",
         orderTypeList: [
@@ -395,14 +443,12 @@ export default {
         dialogDelete: false,
         headers: [
             { text: "ID", value: "id" },
+            { text: "Order App", value: "order_app" },
+            { text: "Order Date", value: "order_date" },
             { text: "Order Code", value: "order_code" },
             { text: "Order Type", value: "order_type" },
-            { text: "Tel", value: "tel" },
-            { text: "Order App", value: "order_app" },
-
             { text: "Order Detail", value: "order_detail" },
-
-            { text: "Order Date", value: "order_date" },
+            { text: "Tel", value: "tel" },
             { text: "Actions", value: "actions", sortable: false }
         ],
         orders: [],
@@ -457,6 +503,26 @@ export default {
                 var msg = successful ? "successful" : "unsuccessful";
                 console.log("Copying text command was " + msg);
                 this.sheet = true;
+            } catch (err) {
+                console.log("Oops, unable to copy");
+            }
+        },
+        copyOrderList(item, event) {
+            var idx = event.currentTarget.getAttribute("data-id");
+            var copyTextarea = document.querySelector(".copy-orderlist-" + idx);
+            this.copy_tel = item.tel;
+
+            // this.copy_orderlist = item.tel;
+
+            copyTextarea.focus();
+            copyTextarea.select();
+
+            try {
+                var successful = document.execCommand("copy");
+
+                var msg = successful ? "successful" : "unsuccessful";
+                console.log("Copying text command was " + msg);
+                this.sheet2 = true;
             } catch (err) {
                 console.log("Oops, unable to copy");
             }

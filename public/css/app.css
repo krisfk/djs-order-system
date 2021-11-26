@@ -10997,6 +10997,12 @@ a.text-dark:focus {
 
 .copy-tel-text {
   opacity: 0;
+  height: 1px;
+}
+
+.copy-orderlist-text {
+  opacity: 0;
+  height: 1px;
 }
 
 .copy-tel-btn {

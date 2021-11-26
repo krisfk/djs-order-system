@@ -2621,6 +2621,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -2633,8 +2678,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       copy_tel: "",
+      copy_orderlist: "",
       test: "",
       sheet: false,
+      sheet2: false,
       test2: "",
       username: "",
       orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "Syk hand made", "Djs venina", "CUSTOM"],
@@ -2665,23 +2712,23 @@ __webpack_require__.r(__webpack_exports__);
         text: "ID",
         value: "id"
       }, {
+        text: "Order App",
+        value: "order_app"
+      }, {
+        text: "Order Date",
+        value: "order_date"
+      }, {
         text: "Order Code",
         value: "order_code"
       }, {
         text: "Order Type",
         value: "order_type"
       }, {
-        text: "Tel",
-        value: "tel"
-      }, {
-        text: "Order App",
-        value: "order_app"
-      }, {
         text: "Order Detail",
         value: "order_detail"
       }, {
-        text: "Order Date",
-        value: "order_date"
+        text: "Tel",
+        value: "tel"
       }, {
         text: "Actions",
         value: "actions",
@@ -2733,6 +2780,23 @@ __webpack_require__.r(__webpack_exports__);
         var msg = successful ? "successful" : "unsuccessful";
         console.log("Copying text command was " + msg);
         this.sheet = true;
+      } catch (err) {
+        console.log("Oops, unable to copy");
+      }
+    },
+    copyOrderList: function copyOrderList(item, event) {
+      var idx = event.currentTarget.getAttribute("data-id");
+      var copyTextarea = document.querySelector(".copy-orderlist-" + idx);
+      this.copy_tel = item.tel; // this.copy_orderlist = item.tel;
+
+      copyTextarea.focus();
+      copyTextarea.select();
+
+      try {
+        var successful = document.execCommand("copy");
+        var msg = successful ? "successful" : "unsuccessful";
+        console.log("Copying text command was " + msg);
+        this.sheet2 = true;
       } catch (err) {
         console.log("Oops, unable to copy");
       }
@@ -60745,6 +60809,75 @@ var render = function() {
                                                           _c(
                                                             "v-card-text",
                                                             [
+                                                              _c("v-select", {
+                                                                attrs: {
+                                                                  items:
+                                                                    _vm.orderAppList,
+                                                                  label:
+                                                                    "Order App",
+                                                                  outlined: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .editedItem
+                                                                      .order_app,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.editedItem,
+                                                                      "order_app",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "\n                                                            editedItem.order_app\n                                                        "
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "datepicker-label"
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                                        Order Date\n                                                    "
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c("Datepicker", {
+                                                                staticClass:
+                                                                  "datepicker mb-5",
+                                                                attrs: {
+                                                                  type: "date",
+                                                                  format:
+                                                                    "yyyy-MM-dd",
+                                                                  placeholder:
+                                                                    "Order Date(yyyy-MM-dd)"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .editedItem
+                                                                      .order_date,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.editedItem,
+                                                                      "order_date",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "\n                                                            editedItem.order_date\n                                                        "
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
                                                               _c(
                                                                 "v-text-field",
                                                                 {
@@ -60804,6 +60937,38 @@ var render = function() {
                                                                 }
                                                               }),
                                                               _vm._v(" "),
+                                                              _c("v-textarea", {
+                                                                staticClass:
+                                                                  "mt-0",
+                                                                attrs: {
+                                                                  rules: [
+                                                                    _vm.rules
+                                                                      .required
+                                                                  ],
+                                                                  label:
+                                                                    "Order Detail",
+                                                                  hint: "",
+                                                                  outlined: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .editedItem
+                                                                      .order_detail,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.editedItem,
+                                                                      "order_detail",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "\n                                                            editedItem.order_detail\n                                                        "
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
                                                               _c(
                                                                 "v-text-field",
                                                                 {
@@ -60836,107 +61001,6 @@ var render = function() {
                                                                   }
                                                                 }
                                                               ),
-                                                              _vm._v(" "),
-                                                              _c("v-select", {
-                                                                attrs: {
-                                                                  items:
-                                                                    _vm.orderAppList,
-                                                                  label:
-                                                                    "Order App",
-                                                                  outlined: ""
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    _vm
-                                                                      .editedItem
-                                                                      .order_app,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      _vm.editedItem,
-                                                                      "order_app",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                  expression:
-                                                                    "\n                                                            editedItem.order_app\n                                                        "
-                                                                }
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "datepicker-label"
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                                        Order Date\n                                                    "
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _c("Datepicker", {
-                                                                staticClass:
-                                                                  "datepicker mb-4",
-                                                                attrs: {
-                                                                  type: "date",
-                                                                  format:
-                                                                    "yyyy-MM-dd",
-                                                                  placeholder:
-                                                                    "Order Date(yyyy-MM-dd)"
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    _vm
-                                                                      .editedItem
-                                                                      .order_date,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      _vm.editedItem,
-                                                                      "order_date",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                  expression:
-                                                                    "\n                                                            editedItem.order_date\n                                                        "
-                                                                }
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c("v-textarea", {
-                                                                staticClass:
-                                                                  "mt-7",
-                                                                attrs: {
-                                                                  rules: [
-                                                                    _vm.rules
-                                                                      .required
-                                                                  ],
-                                                                  label:
-                                                                    "Order Detail",
-                                                                  hint: "",
-                                                                  outlined: ""
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    _vm
-                                                                      .editedItem
-                                                                      .order_detail,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      _vm.editedItem,
-                                                                      "order_detail",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                  expression:
-                                                                    "\n                                                            editedItem.order_detail\n                                                        "
-                                                                }
-                                                              }),
                                                               _vm._v(" "),
                                                               _c(
                                                                 "v-btn",
@@ -61171,12 +61235,58 @@ var render = function() {
                                             [_vm._v("copy tel")]
                                           ),
                                           _vm._v(" "),
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "copy-order-msg action-btn",
+                                              attrs: {
+                                                href: "javascript:void(0);",
+                                                "data-id": item.id
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.copyOrderList(
+                                                    item,
+                                                    $event
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("copy order list")]
+                                          ),
+                                          _vm._v(" "),
                                           _c("input", {
                                             class:
                                               "copy-tel-text copy-tel-" +
                                               item.id,
                                             attrs: { type: "text" },
                                             domProps: { value: item.tel }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("textarea", {
+                                            class:
+                                              "copy-orderlist-text copy-orderlist-" +
+                                              item.id,
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value:
+                                                "Order Code" +
+                                                "\n" +
+                                                item.order_code +
+                                                "\n\n" +
+                                                "Tel" +
+                                                "\n" +
+                                                item.tel +
+                                                "\n\n" +
+                                                "Order Detail" +
+                                                "\n" +
+                                                item.order_detail +
+                                                "\n\n" +
+                                                "Order Date" +
+                                                "\n" +
+                                                item.order_date
+                                            }
                                           })
                                         ],
                                         1
@@ -61258,6 +61368,50 @@ var render = function() {
               _c("div", { staticClass: "py-3 font-weight-bold" }, [
                 _vm._v(
                   "\n                Number " +
+                    _vm._s(_vm.copy_tel) +
+                    " is copied\n            "
+                )
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-bottom-sheet",
+        {
+          model: {
+            value: _vm.sheet2,
+            callback: function($$v) {
+              _vm.sheet2 = $$v
+            },
+            expression: "sheet2"
+          }
+        },
+        [
+          _c(
+            "v-sheet",
+            { staticClass: "text-center", attrs: { height: "200px" } },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mt-6",
+                  attrs: { text: "", color: "red" },
+                  on: {
+                    click: function($event) {
+                      _vm.sheet = !_vm.sheet
+                    }
+                  }
+                },
+                [_vm._v("\n                close\n            ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "py-3 font-weight-bold" }, [
+                _vm._v(
+                  "\n                Order list from " +
                     _vm._s(_vm.copy_tel) +
                     " is copied\n            "
                 )
