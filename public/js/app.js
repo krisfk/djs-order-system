@@ -2716,19 +2716,19 @@ __webpack_require__.r(__webpack_exports__);
         text: "ID",
         value: "id"
       }, {
-        text: "Order App",
+        text: "Bill App",
         value: "order_app"
       }, {
-        text: "Order Date",
+        text: "Bill Date",
         value: "order_date"
       }, {
-        text: "Order Code",
+        text: "Bill Code",
         value: "order_code"
       }, {
-        text: "Order Type",
+        text: "Bill Type",
         value: "order_type"
       }, {
-        text: "Order Detail",
+        text: "Bill Detail",
         value: "order_detail"
       }, {
         text: "Tel",
@@ -61275,11 +61275,11 @@ var render = function() {
                                             attrs: { type: "text" },
                                             domProps: {
                                               value:
-                                                "*Order Code*" +
+                                                "*Bill Code*" +
                                                 "\n" +
                                                 item.order_code +
                                                 "\n\n" +
-                                                "*Order Type*" +
+                                                "*Bill Type*" +
                                                 "\n" +
                                                 item.order_type +
                                                 "\n\n" +
@@ -61287,11 +61287,11 @@ var render = function() {
                                                 "\n" +
                                                 item.tel +
                                                 "\n\n" +
-                                                "*Order Detail*" +
+                                                "*Bill Detail*" +
                                                 "\n" +
                                                 item.order_detail +
                                                 "\n\n" +
-                                                "*Order Date*" +
+                                                "*Bill Date*" +
                                                 "\n" +
                                                 item.order_date
                                             }

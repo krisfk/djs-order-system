@@ -447,11 +447,11 @@ export default {
         dialogDelete: false,
         headers: [
             { text: "ID", value: "id" },
-            { text: "Order App", value: "order_app" },
-            { text: "Order Date", value: "order_date" },
-            { text: "Order Code", value: "order_code" },
-            { text: "Order Type", value: "order_type" },
-            { text: "Order Detail", value: "order_detail" },
+            { text: "Bill App", value: "order_app" },
+            { text: "Bill Date", value: "order_date" },
+            { text: "Bill Code", value: "order_code" },
+            { text: "Bill Type", value: "order_type" },
+            { text: "Bill Detail", value: "order_detail" },
             { text: "Tel", value: "tel" },
             { text: "Actions", value: "actions", sortable: false }
         ],
