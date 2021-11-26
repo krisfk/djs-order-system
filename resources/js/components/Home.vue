@@ -340,6 +340,10 @@
                                                     '\n' +
                                                     item.order_code +
                                                     '\n\n' +
+                                                    'Order Type' +
+                                                    '\n' +
+                                                    item.order_type +
+                                                    '\n\n' +
                                                     'Tel' +
                                                     '\n' +
                                                     item.tel +

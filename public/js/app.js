@@ -2666,6 +2666,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 // import VueJsonToCsv from "vue-json-to-csv";
 
 
@@ -61274,6 +61278,10 @@ var render = function() {
                                                 "Order Code" +
                                                 "\n" +
                                                 item.order_code +
+                                                "\n\n" +
+                                                "Order Type" +
+                                                "\n" +
+                                                item.order_type +
                                                 "\n\n" +
                                                 "Tel" +
                                                 "\n" +
