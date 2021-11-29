@@ -2803,7 +2803,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.editedIndex == -1) {
         var todaydate = new Date();
-        todaydate = moment__WEBPACK_IMPORTED_MODULE_2___default()(todaydate).format("YYYY-MM-DD");
+        todaydate = moment__WEBPACK_IMPORTED_MODULE_2___default()(todaydate).format("YYYY.MM.DD");
         this.editedItem.order_date = todaydate;
       }
     },
@@ -2867,7 +2867,7 @@ __webpack_require__.r(__webpack_exports__);
       this.editedIndex = -1; // if (this.editedIndex == -1) {
 
       var todaydate = new Date();
-      todaydate = moment__WEBPACK_IMPORTED_MODULE_2___default()(todaydate).format("YYYY-MM-DD");
+      todaydate = moment__WEBPACK_IMPORTED_MODULE_2___default()(todaydate).format("YYYY.MM.DD");
       this.editedItem.order_date = todaydate;
       this.dialog = true; // }
     },
@@ -2924,7 +2924,7 @@ __webpack_require__.r(__webpack_exports__);
       var order_app = this.editedItem.order_app;
       var tel = this.editedItem.tel; // alert(this.editedItem.order_date);
 
-      this.editedItem.order_date = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.editedItem.order_date).format("yyyy-MM-DD");
+      this.editedItem.order_date = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.editedItem.order_date).format("yyyy.MM.DD");
       var order_date = this.editedItem.order_date; // alert(order_date);
       // this.editedItem.order_date;
 
@@ -60946,9 +60946,9 @@ var render = function() {
                                                                 attrs: {
                                                                   type: "date",
                                                                   format:
-                                                                    "yyyy-MM-dd",
+                                                                    "yyyy.MM.dd",
                                                                   placeholder:
-                                                                    "Bill Date(yyyy-MM-dd)"
+                                                                    "Bill Date(yyyy.MM.dd)"
                                                                 },
                                                                 model: {
                                                                   value:

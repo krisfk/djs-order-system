@@ -183,11 +183,11 @@
                                                         <Datepicker
                                                             type="date"
                                                             class="datepicker mb-5"
-                                                            format="yyyy-MM-dd"
+                                                            format="yyyy.MM.dd"
                                                             v-model="
                                                                 editedItem.order_date
                                                             "
-                                                            placeholder="Bill Date(yyyy-MM-dd)"
+                                                            placeholder="Bill Date(yyyy.MM.dd)"
                                                         ></Datepicker>
 
                                                         <v-text-field
@@ -524,7 +524,7 @@ export default {
             // alert(this.editedIndex);
             if (this.editedIndex == -1) {
                 var todaydate = new Date();
-                todaydate = moment(todaydate).format("YYYY-MM-DD");
+                todaydate = moment(todaydate).format("YYYY.MM.DD");
 
                 this.editedItem.order_date = todaydate;
             }
@@ -599,7 +599,7 @@ export default {
 
             // if (this.editedIndex == -1) {
             var todaydate = new Date();
-            todaydate = moment(todaydate).format("YYYY-MM-DD");
+            todaydate = moment(todaydate).format("YYYY.MM.DD");
 
             this.editedItem.order_date = todaydate;
             this.dialog = true;
@@ -665,7 +665,7 @@ export default {
             // alert(this.editedItem.order_date);
             this.editedItem.order_date = moment(
                 this.editedItem.order_date
-            ).format("yyyy-MM-DD");
+            ).format("yyyy.MM.DD");
 
             let order_date = this.editedItem.order_date;
             // alert(order_date);
