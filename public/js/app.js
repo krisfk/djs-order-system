@@ -2704,10 +2704,12 @@ __webpack_require__.r(__webpack_exports__);
       test: "",
       sheet: false,
       sheet2: false,
+      selectedOrderApp: "WhatsApp",
       test2: "",
       username: "",
       orderTypeList: ["", "JP", "TW", "KANAHEI", "KAO KANAHEI", "JS CLOTHING", "STOCK", "STORE", "Syk hand made", "Djs venina", "CUSTOM"],
-      orderAppList: ["", "WhatsApp", "Signal"],
+      orderAppList: ["WhatsApp"],
+      // orderAppList: ["", "WhatsApp", "Signal"],
       current_doc: "",
       overlay: false,
       page_title: "Order Management",
@@ -60910,20 +60912,14 @@ var render = function() {
                                                                 },
                                                                 model: {
                                                                   value:
-                                                                    _vm
-                                                                      .editedItem
-                                                                      .order_app,
+                                                                    _vm.selectedOrderApp,
                                                                   callback: function(
                                                                     $$v
                                                                   ) {
-                                                                    _vm.$set(
-                                                                      _vm.editedItem,
-                                                                      "order_app",
-                                                                      $$v
-                                                                    )
+                                                                    _vm.selectedOrderApp = $$v
                                                                   },
                                                                   expression:
-                                                                    "\n                                                            editedItem.order_app\n                                                        "
+                                                                    "\n                                                            selectedOrderApp\n                                                        "
                                                                 }
                                                               }),
                                                               _vm._v(" "),

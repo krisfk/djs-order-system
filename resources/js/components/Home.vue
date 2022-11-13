@@ -166,7 +166,7 @@
                                                     <v-card-text>
                                                         <v-select
                                                             v-model="
-                                                                editedItem.order_app
+                                                                selectedOrderApp
                                                             "
                                                             :items="
                                                                 orderAppList
@@ -426,7 +426,7 @@ export default {
         test: "",
         sheet: false,
         sheet2: false,
-
+        selectedOrderApp: "WhatsApp",
         test2: "",
         username: "",
         orderTypeList: [
@@ -442,7 +442,9 @@ export default {
             "Djs venina",
             "CUSTOM"
         ],
-        orderAppList: ["", "WhatsApp", "Signal"],
+        orderAppList: ["WhatsApp"],
+        // orderAppList: ["", "WhatsApp", "Signal"],
+
         current_doc: "",
         overlay: false,
         page_title: "Order Management",
