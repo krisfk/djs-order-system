@@ -70,7 +70,7 @@
 export default {
     props: {
         login_status: Number,
-        username: String
+        username: String,
     },
     data: () => ({
         overlay: false,
@@ -149,7 +149,7 @@ export default {
             //     icon: "mdi-format-list-bulleted-square"
             // }
             // { title: "About", icon: "mdi-help-box" }
-        ]
+        ],
     }),
     methods: {
         clicked(slug) {
@@ -162,7 +162,7 @@ export default {
             $vm.overlay = true;
             this.drawer = false;
 
-            axios.post("/api/adminLogout").then(function(response) {
+            axios.post("/api/adminLogout").then(function (response) {
                 if (response.data.code == "200") {
                     $vm.overlay = false;
                     $vm.$router.push("login");
@@ -175,8 +175,8 @@ export default {
                     // $vm.$router.push("home");
                 }
             });
-        }
-    }
+        },
+    },
 };
 </script>
 

@@ -12,8 +12,6 @@ class AppController extends Controller
     }
 
     public function cms(){
-        // dd(54);
         return view('cms');        
     }
-    //
 }

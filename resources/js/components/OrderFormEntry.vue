@@ -1,10 +1,10 @@
 <template>
-    <v-content class="position-absolute w-100">
+    <v-main class="position-absolute w-100">
         <v-container>
             <v-layout row class="text-xs-center" justify-center>
                 <v-col xl="6" lg="6" md="12" xs="12">
                     <v-container
-                        style="position: relative;top: 13%;"
+                        style="position: relative; top: 13%"
                         class="text-xs-center"
                         fluid
                     >
@@ -13,7 +13,7 @@
                 </v-col>
             </v-layout>
         </v-container>
-    </v-content>
+    </v-main>
 </template>
 
 <script>

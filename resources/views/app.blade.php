@@ -8,7 +8,10 @@
         <title>Djs Order System</title> 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+        {{-- <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet"> --}}
+        <link href="https://www.idea-play.com/v1/vuetify.css" rel="stylesheet">
+        {{-- https://unpkg.com/vuetify@2.7.1/dist/vuetify.css --}}
+
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
 
 

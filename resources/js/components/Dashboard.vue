@@ -7,7 +7,7 @@
             @status="setStatus"
         ></Header>
 
-        <!-- <v-content> {{ this.page }}</v-content> -->
+        <!-- <v-main> {{ this.page }}</v-main> -->
 
         <!-- <v-if></v-if> -->
         <div class="position-relative w-100">
@@ -29,7 +29,7 @@
                 ></OrderFormEntry>
             </transition>
         </div>
-        <!-- <v-content>
+        <!-- <v-main>
             <v-container class="fill-height" fluid>
                 <v-row align="center" justify="center">
                     <v-col class="text-center">
@@ -61,7 +61,7 @@
                     </v-col>
                 </v-row>
             </v-container>
-        </v-content> -->
+        </v-main> -->
     </v-app>
 </template>
 

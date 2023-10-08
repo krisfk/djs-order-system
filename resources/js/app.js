@@ -10,9 +10,6 @@ require("./bootstrap");
 // window.Vue = require("vue");
 
 import router from "./router";
-// import ExampleComponent from "./components/ExampleComponent";
-// import TestComponent from "./components/TestComponent";
-// import TestComponent2 from "./components/TestComponent2";
 import App from "./components/App";
 
 import Vuetify from "../plugins/vuetify";
@@ -49,5 +46,15 @@ const app = new Vue({
     vuetify: Vuetify,
     components: { App },
     el: "#app",
-    router
+    router,
 });
+
+// When you create your Vue istance you must create a new istance of Vuetify also.
+//
+// const app = new Vue({
+//     el: '#app',
+//     vuetify: new Vuetify()
+// });
+// // I suggest you also to add this after importing Vuetify:
+
+// import 'vuetify/dist/vuetify.min.css'

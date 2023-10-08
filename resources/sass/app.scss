@@ -4,6 +4,8 @@
 @import "variables";
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+
 .change-leave {
     opacity: 1;
 }
@@ -55,7 +57,7 @@
     margin: 5rem 0 0 0 !important;
 }
 
-.theme--light.v-data-table>.v-data-table__wrapper>table>thead>tr>th {
+.theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th {
     white-space: nowrap !important;
 }
 
@@ -69,7 +71,7 @@
     // position: absolute;
 }
 
-.v-data-table>.v-data-table__wrapper .v-data-table__mobile-row {
+.v-data-table > .v-data-table__wrapper .v-data-table__mobile-row {
     white-space: pre-line !important;
 }
 

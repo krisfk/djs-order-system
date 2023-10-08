@@ -1,10 +1,10 @@
 <template>
-    <v-content class="position-absolute w-100">
+    <v-main class="position-absolute w-100">
         <v-container>
             <v-layout row class="text-xs-center" justify-center>
                 <v-col xl="6" lg="6" md="12" xs="12">
                     <v-container
-                        style="position: relative;top: 13%;"
+                        style="position: relative; top: 13%"
                         class="text-xs-center"
                         fluid
                     >
@@ -20,7 +20,7 @@
             <v-layout row class="text-xs-center" justify-center>
                 <v-col xl="12" lg="12" md="12" xs="12">
                     <v-container
-                        style="position: relative;"
+                        style="position: relative"
                         class="text-xs-center"
                         fluid
                     >
@@ -71,19 +71,21 @@
                                     <v-toolbar flat>
                                         <div class="row">
                                             <div
-                                                class="col-lg-8 col-md-8 col-sm-12 col-12 "
+                                                class="col-lg-8 col-md-8 col-sm-12 col-12"
                                             >
                                                 <h5 class="">
                                                     {{ page_title }}
                                                 </h5>
                                                 <v-divider
                                                     class="mx-2 divider"
-                                                    style="width: 100px;
-                                                            height: 32px;
-                                                            padding: 0;
-                                                            margin: 0;
-                                                            position: relative;
-                                                            top: 6px;"
+                                                    style="
+                                                        width: 100px;
+                                                        height: 32px;
+                                                        padding: 0;
+                                                        margin: 0;
+                                                        position: relative;
+                                                        top: 6px;
+                                                    "
                                                     inset
                                                     vertical
                                                 ></v-divider>
@@ -196,7 +198,7 @@
                                                             "
                                                             label="Bill Code"
                                                             :rules="[
-                                                                rules.required
+                                                                rules.required,
                                                             ]"
                                                             outlined
                                                         ></v-text-field>
@@ -214,7 +216,7 @@
 
                                                         <v-textarea
                                                             :rules="[
-                                                                rules.required
+                                                                rules.required,
                                                             ]"
                                                             v-model="
                                                                 editedItem.order_detail
@@ -231,7 +233,7 @@
                                                             "
                                                             label="Tel"
                                                             :rules="[
-                                                                rules.required
+                                                                rules.required,
                                                             ]"
                                                         ></v-text-field>
 
@@ -341,7 +343,7 @@
                                             type="text"
                                             :class="
                                                 'copy-tel-text copy-tel-' +
-                                                    item.id
+                                                item.id
                                             "
                                             :value="item.tel"
                                         />
@@ -350,28 +352,28 @@
                                             type="text"
                                             :class="
                                                 'copy-orderlist-text copy-orderlist-' +
-                                                    item.id
+                                                item.id
                                             "
                                             :value="
                                                 '*Bill Code*' +
-                                                    '\n' +
-                                                    item.order_code +
-                                                    '\n\n' +
-                                                    '*Bill Type*' +
-                                                    '\n' +
-                                                    item.order_type +
-                                                    '\n\n' +
-                                                    '*Tel*' +
-                                                    '\n' +
-                                                    item.tel +
-                                                    '\n\n' +
-                                                    '*Bill Detail*' +
-                                                    '\n' +
-                                                    item.order_detail +
-                                                    '\n\n' +
-                                                    '*Bill Date*' +
-                                                    '\n' +
-                                                    item.order_date
+                                                '\n' +
+                                                item.order_code +
+                                                '\n\n' +
+                                                '*Bill Type*' +
+                                                '\n' +
+                                                item.order_type +
+                                                '\n\n' +
+                                                '*Tel*' +
+                                                '\n' +
+                                                item.tel +
+                                                '\n\n' +
+                                                '*Bill Detail*' +
+                                                '\n' +
+                                                item.order_detail +
+                                                '\n\n' +
+                                                '*Bill Date*' +
+                                                '\n' +
+                                                item.order_date
                                             "
                                         />
                                     </div>
@@ -408,7 +410,7 @@
                 </div>
             </v-sheet>
         </v-bottom-sheet>
-    </v-content>
+    </v-main>
 </template>
 
 <script>
@@ -440,7 +442,7 @@ export default {
             "STORE",
             "Syk hand made",
             "Djs venina",
-            "CUSTOM"
+            "CUSTOM",
         ],
         orderAppList: ["WhatsApp"],
         // orderAppList: ["", "WhatsApp", "Signal"],
@@ -449,16 +451,17 @@ export default {
         overlay: false,
         page_title: "Order Management",
         rules: {
-            required: value => !!value || "Required.",
-            password_edit: value =>
+            required: (value) => !!value || "Required.",
+            password_edit: (value) =>
                 !value || (value && value.length >= 8) || "Min 8 characters",
-            password_new: value =>
+            password_new: (value) =>
                 (value && value.length >= 8) || "Min 8 characters",
 
-            email: value => {
-                const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            email: (value) => {
+                const pattern =
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return pattern.test(value) || "Invalid e-mail.";
-            }
+            },
         },
 
         search: "",
@@ -474,16 +477,16 @@ export default {
             { text: "Bill Type", value: "order_type" },
             { text: "Bill Detail", value: "order_detail" },
             { text: "Tel", value: "tel" },
-            { text: "Actions", value: "actions", sortable: false }
+            { text: "Actions", value: "actions", sortable: false },
         ],
         orders: [],
         editedIndex: -1,
         editedItem: {
-            upload_doc: []
+            upload_doc: [],
         },
         defaultItem: {
-            upload_doc: []
-        }
+            upload_doc: [],
+        },
     }),
 
     computed: {
@@ -516,7 +519,7 @@ export default {
             //     return this.search && this.search2;
             // }
             // return !this.search ? this.search2 : this.search && this.search2;
-        }
+        },
     },
 
     watch: {
@@ -533,10 +536,10 @@ export default {
         },
         dialogDelete(val) {
             val || this.closeDelete();
-        }
+        },
     },
 
-    mounted: function() {
+    mounted: function () {
         this.fetchAllOrders();
     },
 
@@ -586,7 +589,7 @@ export default {
         fetchAllOrders() {
             let $vm = this;
 
-            axios.post("/api/allOrders").then(function(response) {
+            axios.post("/api/allOrders").then(function (response) {
                 if (response.data.code == "401") {
                     $vm.$emit("send", "login");
                     $vm.$router.push("login");
@@ -634,7 +637,7 @@ export default {
 
             axios
                 .post("/api/deleteOrder", { order_id })
-                .then(function(response) {
+                .then(function (response) {
                     console.log(response);
                     $vm.orders.splice($vm.editedIndex, 1);
                     $vm.overlay = false;
@@ -698,9 +701,9 @@ export default {
                         order_app,
                         tel,
                         order_date,
-                        order_detail
+                        order_detail,
                     })
-                    .then(function(response) {
+                    .then(function (response) {
                         console.log(response);
                         $vm.overlay = false;
 
@@ -715,18 +718,18 @@ export default {
                     });
                 // }
             }
-        }
+        },
     },
     created() {
         let $vm = this;
-        axios.post("/api/adminUser").then(function(response) {
+        axios.post("/api/adminUser").then(function (response) {
             if (response.data.code == "200") {
                 // $vm.$emit("send", "home");
                 // $vm.$router.push("home");
                 $vm.username = response.data.username;
             }
         });
-    }
+    },
 };
 </script>
 

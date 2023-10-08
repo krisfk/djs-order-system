@@ -1,5 +1,5 @@
 <template>
-    <v-content class="position-absolute w-100">
+    <v-main class="position-absolute w-100">
         <v-overlay :value="overlay">
             <v-progress-circular indeterminate size="64"></v-progress-circular>
         </v-overlay>
@@ -61,7 +61,7 @@
                 </v-col>
             </v-layout>
         </v-container>
-    </v-content>
+    </v-main>
 </template>
 
 <script>
